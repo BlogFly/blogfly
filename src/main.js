@@ -4,6 +4,27 @@
 import Vue from 'vue'
 //import the App component
 import App from './App'
+// Import the vue router
+import VueRouter from "vue-router"
+// Import the vue resource
+import VueResource from "vue-resource"
+// Import the vue fire
+import VueFire from "vuefire"
+// Tell vue to use the vue router
+Vue.use(VueRouter)
+// Tell vue to use the resource
+Vue.use(VueResource)
+// Tell vue to use the vue fire
+Vue.use(VueFire)
+
+const routes= []
+
+const router = new VueRouter({
+  routes,
+  mode: "history"
+})
+
+
 
 //instatinat the vue instance
 new Vue({
@@ -13,4 +34,6 @@ new Vue({
   template: '<App/>',
   //declare components that the root component can access
   components: { App },
+  // Pass in the router to the vue instance
+  router
 }).$mount('#app')//mount the router on the app
