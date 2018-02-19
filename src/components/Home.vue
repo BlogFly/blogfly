@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     getBlogs: function() {
-        this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232?key=AIzaSyDhuNvnWrLjFdl1IoDS5jDGNedEjnbUrn0')
+        this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232?key=AIzaSyDH9lNHLS17CKILohCrOqxQOqhvorwbKck')
         .then(response => {
             this.blogs = response.body.blogs;
         });
