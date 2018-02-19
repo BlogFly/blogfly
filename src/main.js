@@ -17,7 +17,11 @@ Vue.use(VueResource)
 // Tell vue to use the vue fire
 Vue.use(VueFire)
 
-const routes= []
+import Home from './components/Home'
+
+const routes= [
+  {path: '/', component: Home}
+]
 
 const router = new VueRouter({
   routes,
