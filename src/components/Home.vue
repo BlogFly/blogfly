@@ -5,8 +5,36 @@
 </template>
 
 <script>
+
+import { db } from '../db'
+
 export default {
-  name: 'home'
+  name: 'home',
+  data() {
+    return {
+      source: ''
+    }
+  },
+  firebase: {
+    blogposts: {
+      source: db.ref('blogposts'),
+      cancelCallback(err){
+        console.log(err);
+      }
+    }
+  },
+  methods: {
+    getBlogs: function() {
+        this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232?key=AIzaSyDhuNvnWrLjFdl1IoDS5jDGNedEjnbUrn0')
+        .then(response => {
+            this.blogs = response.body.blogs;
+        });
+    }
+  },
+  created: function(){
+      this.getBlogs();
+      console.log()
+  }
 }
 </script>
 
