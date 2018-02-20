@@ -2,16 +2,19 @@
   <div class="home">
     This is the home page!
     <div class="container">
+      <div class="title">
+        <h5>Our Latest Blog</h5>
+      </div>
       <ul>
         <li class="blah" v-for="post in posts">
-          <h1>{{ post.title }}</h1>
+          <h1><a v-bind:href="post.url">{{ post.title }}</a></h1>
+            <p>{{ post.content | truncate(300) }}</p>
         </li>
       </ul>
-    <div class="title">
-      <h5>Our Latest Blog</h5>
     </div>
   </div>
 </template>
+
 
 <script>
 
