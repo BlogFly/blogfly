@@ -2,6 +2,7 @@
   <div class="home">
     <div class="title">
       <h5>Our Latest Blog</h5>
+      <div class="datas"></div>
     </div>
   </div>
 </template>
@@ -27,15 +28,14 @@ export default {
   },
   methods: {
     getBlogs: function() {
-        this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232?key=AIzaSyDH9lNHLS17CKILohCrOqxQOqhvorwbKck')
+        this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232/posts?key=AIzaSyDH9lNHLS17CKILohCrOqxQOqhvorwbKck')
         .then(response => {
-            this.blogs = response.body.blogs;
+            this.posts = response.body.items;
         });
     }
   },
   created: function(){
       this.getBlogs();
-      console.log()
   }
 }
 </script>
