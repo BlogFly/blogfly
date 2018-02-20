@@ -1,16 +1,41 @@
 <template>
   <div id="app">
-  <img src="./assets/logo.png">
-  <Home></Home>
+    <div class="main-banner">
+      <Banner></Banner>
+    </div>
+    <div class="main-container">
+      <div class="main-blog">
+        <Home></Home>
+      </div>
+      <div class="sidebar">
+        <div class="search-field">
+          <Search></Search>
+        </div>
+        <div class="filter-field">
+          <Filters></Filters>
+        </div>
+        <div class="contact-form">
+          <ContactForm></ContactForm>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Home from './components/Home'
+import Search from './components/Search'
+import Filters from './components/Filters'
+import Banner from './components/Banner'
+import ContactForm from './components/ContactForm'
 export default {
   name: 'app',
   components: {
-    Home
+    Banner,
+    Home,
+    Search,
+    Filters,
+    ContactForm
   }
 }
 </script>
@@ -20,8 +45,37 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+}
+
+.sidebar {
+  /*border: 2px solid red;*/
+  width: 20%;
+  margin-left: 50px;
+  border:1px solid #b7b7b7;
+  height:50vh;
+  margin-top:48px;
+}
+
+.main-blog {
+  /*border: 2px solid blue;*/
+  width: 75%;
+  display: flex;
+  justify-content: center;
+}
+.search-field{
+  padding:20px;
+}
+.filter-field {
+  padding:20px;
+}
+
+.dropdown-menu {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width:100%;
+}
+
+.main-container {
+  display: flex;
 }
 </style>

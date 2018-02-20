@@ -7,6 +7,8 @@
           <h1>{{ post.title }}</h1>
         </li>
       </ul>
+    <div class="title">
+      <h5>Our Latest Blog</h5>
     </div>
   </div>
 </template>
@@ -29,6 +31,7 @@ export default {
   },
   methods: {
     getBlogs: function() {
+
         this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232/posts?key=AIzaSyDH9lNHLS17CKILohCrOqxQOqhvorwbKck')
         .then(response => {
             this.posts = response.body.items;
@@ -59,6 +62,19 @@ li {
 
 a {
   color: #42b983;
+}
+.title{
+  width:100%;
+  border-bottom:1px solid #ccc;
+}
+.home{
+  width:100%;
+  margin-left:5%;
+}
+h5{
+  font-weight:bold;
+  text-align: center;
+  font-size:1.5vw;
 }
 
 </style>
