@@ -7,8 +7,11 @@
       </div>
       <ul>
         <li class="blah" v-for="post in posts">
-          <h1><a v-bind:href="post.url">{{ post.title }}</a></h1>
-            <p>{{ post.content | truncate(300) }}</p>
+          <h1>
+            <a v-bind:href="post.url">{{ post.title }}</a>
+          </h1>
+          <p>{{ post.content | truncate(300) }}</p>
+          <button v-on:click="deleteBlog">Delete</button>
         </li>
       </ul>
     </div>
@@ -34,22 +37,25 @@ export default {
   },
   methods: {
     getBlogs: function() {
-
-        this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232/posts?key=AIzaSyDH9lNHLS17CKILohCrOqxQOqhvorwbKck')
+      this.$http.get('https://www.googleapis.com/blogger/v3/blogs/6368604020124655232/posts?key=AIzaSyDH9lNHLS17CKILohCrOqxQOqhvorwbKck')
         .then(response => {
-            this.posts = response.body.items;
+          this.posts = response.body.items;
         });
+    },
+    deleteBlog: function(post) {
+      alert('This button would delet the selected blog.');
     }
   },
-  created: function(){
-      this.getBlogs(); 
+  created: function() {
+    this.getBlogs();
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -66,18 +72,20 @@ li {
 a {
   color: #42b983;
 }
-.title{
-  width:100%;
-  border-bottom:1px solid #ccc;
-}
-.home{
-  width:100%;
-  margin-left:5%;
-}
-h5{
-  font-weight:bold;
-  text-align: center;
-  font-size:1.5vw;
+
+.title {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
 }
 
+.home {
+  width: 100%;
+  margin-left: 5%;
+}
+
+h5 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5vw;
+}
 </style>
