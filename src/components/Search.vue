@@ -1,7 +1,7 @@
 <template>
     <div class="search">
         <div class="input-group stylish-input-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" v-on:keyup.enter="emitTitle" class="form-control search-input" placeholder="Search">
             <span class="input-group-addon">
                 <button type="submit">
                     <span class="glyphicon glyphicon-search"></span>
@@ -13,8 +13,14 @@
 </template>
 
 <script>
+
 export default {
-    name: 'search'
+    name: 'search',
+    methods: {
+        emitTitle: function(evt) {
+            this.$emit("searchByTitleClick", evt.target.value);
+        }
+    }
 }
 </script>
 

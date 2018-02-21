@@ -10,12 +10,16 @@ import VueRouter from "vue-router"
 import VueResource from "vue-resource"
 // Import the vue fire
 import VueFire from "vuefire"
+
+var VueTruncate = require('vue-truncate-filter')
 // Tell vue to use the vue router
 Vue.use(VueRouter)
 // Tell vue to use the resource
 Vue.use(VueResource)
 // Tell vue to use the vue fire
 Vue.use(VueFire)
+// Tell vue to use the vue truncate
+Vue.use(VueTruncate)
 
 import Home from './components/Home'
 

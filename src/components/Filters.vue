@@ -1,5 +1,5 @@
 <template>
-    <div class="filter">
+    <div class="fltr">
         <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Archive post
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-    name: 'filter'
+    name: 'fltr'
 }
 </script>
 
