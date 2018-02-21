@@ -5,11 +5,11 @@
     </div>
     <div class="main-container">
       <div class="main-blog">
-        <Home></Home>
+        <Home v-bind:title="title"></Home>
       </div>
       <div class="sidebar">
         <div class="search-field">
-          <Search></Search>
+          <Search v-on:searchByTitleClick="searchByTitle"></Search>
         </div>
         <div class="filter-field">
           <Filters></Filters>
@@ -30,12 +30,22 @@ import Banner from './components/Banner'
 import ContactForm from './components/ContactForm'
 export default {
   name: 'app',
+  data() {
+    return {
+      title: ""
+    }
+  },
   components: {
     Banner,
     Home,
     Search,
     Filters,
     ContactForm
+  },
+  methods: {
+    searchByTitle: function(title) {
+      this.title = title;
+    }
   }
 }
 </script>
@@ -52,9 +62,9 @@ export default {
   /*border: 2px solid red;*/
   width: 20%;
   margin-left: 50px;
-  border:1px solid #b7b7b7;
-  height:50vh;
-  margin-top:48px;
+  border: 1px solid #b7b7b7;
+  height: 50vh;
+  margin-top: 48px;
 }
 
 .main-blog {
@@ -63,16 +73,18 @@ export default {
   display: flex;
   justify-content: center;
 }
-.search-field{
-  padding:20px;
+
+.search-field {
+  padding: 20px;
 }
+
 .filter-field {
-  padding:20px;
+  padding: 20px;
 }
 
 .dropdown-menu {
   text-align: center;
-  width:100%;
+  width: 100%;
 }
 
 .main-container {
