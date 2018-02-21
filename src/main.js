@@ -10,7 +10,11 @@ import VueRouter from "vue-router"
 import VueResource from "vue-resource"
 // Import the vue fire
 import VueFire from "vuefire"
+<<<<<<< HEAD
 
+=======
+// Import the truncate filter
+>>>>>>> d9db821b169a2236935210d4dd765d32e5a70f2d
 var VueTruncate = require('vue-truncate-filter')
 // Tell vue to use the vue router
 Vue.use(VueRouter)
@@ -18,7 +22,11 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 // Tell vue to use the vue fire
 Vue.use(VueFire)
+<<<<<<< HEAD
 // Tell vue to use the vue truncate
+=======
+// Tell vue to use the trucate filter
+>>>>>>> d9db821b169a2236935210d4dd765d32e5a70f2d
 Vue.use(VueTruncate)
 
 import Home from './components/Home'
