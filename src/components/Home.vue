@@ -1,19 +1,31 @@
 <template>
   <div class="home">
-    This is the home page!
     <div class="container">
       <div class="title">
         <h5>Our Latest Blog</h5>
       </div>
-      <ul>
-        <li class="blah" v-for="post in posts">
-          <h1>
-            <a v-bind:href="post.url">{{ post.title }}</a>
-          </h1>
-          <p>{{ post.content | truncate(300) }}</p>
-          <button v-on:click="deleteBlog">Delete</button>
-        </li>
-      </ul>
+      <div class="default-posts" v-if="searchedPosts.length === 0">
+        <ul>
+          <li class="blah" v-for="post in posts">
+            <h1>
+              <a v-bind:href="post.url">{{ post.title }}</a>
+            </h1>
+            <p>{{ post.content | truncate(300) }}</p>
+            <button v-on:click="deleteBlog">Delete Post</button>
+          </li>
+        </ul>
+      </div>
+      <div class="searched-posts" v-else-if="searchedPosts.length >= 1">
+        <ul>
+          <li class="blah" v-for="post in searchedPosts">
+            <h1>
+              <a v-bind:href="post.url">{{ post.title }}</a>
+            </h1>
+            <p>{{ post.content | truncate(300) }}</p>
+            <button v-on:click="deleteBlog">Delete Post</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -27,9 +39,11 @@ let blogsRef = db.ref('blogPosts')
 
 export default {
   name: 'home',
+  props: ["title"],
   data() {
     return {
-      posts: []
+      posts: [],
+      searchedPosts: []
     }
   },
   firebase: {
@@ -43,11 +57,24 @@ export default {
         });
     },
     deleteBlog: function(post) {
-      alert('This button would delet the selected blog.');
+      alert('This button would delet the selected blog.')
+    },
+    filterPostsByTitle: function(title) {
+      for (var i = 0; i < this.posts.length; i++) {
+        var allThePosts = this.posts[i];
+        if (allThePosts.title === title) {
+          this.searchedPosts.push(allThePosts);
+        }
+      }
     }
   },
   created: function() {
     this.getBlogs();
+  },
+  watch: {
+    title: function(title) {
+      this.filterPostsByTitle(title);
+    }
   }
 }
 </script>
@@ -65,7 +92,6 @@ ul {
 }
 
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 
@@ -87,5 +113,9 @@ h5 {
   font-weight: bold;
   text-align: center;
   font-size: 1.5vw;
+}
+
+.the-posts {
+  height: 20px;
 }
 </style>
