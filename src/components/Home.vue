@@ -64,7 +64,9 @@ export default {
       for (var i = 0; i < this.posts.length; i++) {
         var allThePosts = this.posts[i];
         var str = allThePosts.title;
-        if (str.search(title) > -1) {
+        var lowCaseStr = str.toLowerCase();
+        var lowCaseTitle = title.toLowerCase();
+        if (lowCaseStr.search(lowCaseTitle) > -1) {
           this.searchedPosts.push(allThePosts);
         }
       }
@@ -123,5 +125,9 @@ h5 {
 
 .the-posts {
   height: 20px;
+}
+
+.container {
+  width: 100%;
 }
 </style>
