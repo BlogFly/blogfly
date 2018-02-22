@@ -60,11 +60,16 @@ export default {
       alert('This button would delet the selected blog.')
     },
     filterPostsByTitle: function(title) {
+      this.searchedPosts = [];
       for (var i = 0; i < this.posts.length; i++) {
         var allThePosts = this.posts[i];
-        if (allThePosts.title === title) {
+        var str = allThePosts.title;
+        if (str.search(title) > -1) {
           this.searchedPosts.push(allThePosts);
         }
+      }
+      if (this.searchedPosts.length === 0) {
+        alert('Your search returned no results');
       }
     }
   },
@@ -92,6 +97,7 @@ ul {
 }
 
 li {
+
   margin: 0 10px;
 }
 
