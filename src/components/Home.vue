@@ -11,6 +11,7 @@
               <a v-bind:href="post.url">{{ post.title }}</a>
             </h1>
             <p>{{ post.content | truncate(300) }}</p>
+            <button v-on:click="deleteBlog">Delete Post</button>
           </li>
         </ul>
       </div>
@@ -21,6 +22,7 @@
               <a v-bind:href="post.url">{{ post.title }}</a>
             </h1>
             <p>{{ post.content | truncate(300) }}</p>
+            <button v-on:click="deleteBlog">Delete Post</button>
           </li>
         </ul>
       </div>
@@ -54,7 +56,11 @@ export default {
           this.posts = response.body.items;
         });
     },
+    deleteBlog: function(post) {
+      alert('This button would delet the selected blog.')
+    },
     filterPostsByTitle: function(title) {
+      this.searchedPosts = [];
       for (var i = 0; i < this.posts.length; i++) {
         var allThePosts = this.posts[i];
         if (allThePosts.title === title) {
@@ -62,7 +68,6 @@ export default {
         }
       }
     }
-
   },
   created: function() {
     this.getBlogs();
