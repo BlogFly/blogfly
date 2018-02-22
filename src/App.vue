@@ -56,15 +56,16 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 100%;
+  background-color: #333;
 }
 
 .sidebar {
   /*border: 2px solid red;*/
   width: 20%;
   margin-left: 50px;
-  border: 1px solid #b7b7b7;
-  height: 81vh;
-  margin-top: 48px;
+  height: 88vh;
+  margin-top: 80px;
+  background-color: #2c2c2c
 }
 
 .main-blog {

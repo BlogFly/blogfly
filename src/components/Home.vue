@@ -8,7 +8,7 @@
         <ul>
           <li class="blah" v-for="post in posts">
             <h1>
-              <a v-bind:href="post.url">{{ post.title }}</a>
+              <a class="post-heading" v-bind:href="post.url">{{ post.title }}</a>
             </h1>
             <p>{{ post.content | truncate(300) }}</p>
             <button v-on:click="deleteBlog">Delete Post</button>
@@ -19,7 +19,7 @@
         <ul>
           <li class="blah" v-for="post in searchedPosts">
             <h1>
-              <a v-bind:href="post.url">{{ post.title }}</a>
+              <a class="post-heading" v-bind:href="post.url">{{ post.title }}</a>
             </h1>
             <p>{{ post.content | truncate(300) }}</p>
             <button v-on:click="deleteBlog">Delete Post</button>
@@ -101,10 +101,9 @@ ul {
 li {
 
   display: inline-block;
-  border: 1px solid #b7b7b7;
   width: 100%;
   margin: 30px 0;
-  padding: 10px 10px;
+  padding: 25px 20px;
 }
 
 a {
@@ -113,7 +112,8 @@ a {
 
 .title {
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+  color: #eebc62;
 }
 
 .home {
@@ -133,5 +133,16 @@ h5 {
 
 .container {
   width: 100%;
+}
+
+.post-heading {
+  color: #eebc62;
+  font-size:3vh;
+}
+.blah{
+  background-color: #2c2c2c;
+}
+p{
+  color:#fff;
 }
 </style>

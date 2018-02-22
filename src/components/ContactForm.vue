@@ -32,7 +32,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 h1,
 h2 {
     font-weight: normal;
@@ -83,6 +82,16 @@ h5 {
 
 .form-group-btn {
     padding: 0 20px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #eebc62;
+    font-weight: bold;
+}
+
+button:hover {
+    color: #fff;
 }
 
 textarea {
@@ -94,9 +103,13 @@ textarea {
 }
 
 .form-control-no-border:focus {
-  border-color:#ccc;
-  outline: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+    border-color: #ccc;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+label {
+    color: #eebc62;
 }
 </style>
