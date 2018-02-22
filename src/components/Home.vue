@@ -63,9 +63,13 @@ export default {
       this.searchedPosts = [];
       for (var i = 0; i < this.posts.length; i++) {
         var allThePosts = this.posts[i];
-        if (allThePosts.title === title) {
+        var str = allThePosts.title;
+        if (str.search(title) > -1) {
           this.searchedPosts.push(allThePosts);
         }
+      }
+      if (this.searchedPosts.length === 0) {
+        alert('Your search returned no results');
       }
     }
   },
@@ -93,7 +97,7 @@ ul {
 }
 
 li {
-  display: inline-block;
+
   margin: 0 10px;
 }
 
