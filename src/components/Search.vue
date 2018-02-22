@@ -79,4 +79,7 @@ a {
     background: transparent;
     user-select: none!important;
 }
+.search{
+    padding-top:25px
+}
 </style>

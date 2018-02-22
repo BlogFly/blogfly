@@ -63,7 +63,7 @@ export default {
   width: 20%;
   margin-left: 50px;
   border: 1px solid #b7b7b7;
-  height: 50vh;
+  height: 81vh;
   margin-top: 48px;
 }
 

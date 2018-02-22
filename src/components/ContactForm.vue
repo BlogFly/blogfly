@@ -3,16 +3,19 @@
         <form>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Name</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name">
+                <input type="text" class="form-control form-control-no-border" id="exampleFormControlInput1" placeholder="Enter your name">
             </div>
             <div class="form-group email-form-group">
                 <label for="exampleFormControlSelect1">Email</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <input type="email" class="form-control form-control-no-border" id="exampleFormControlInput2" placeholder="name@example.com">
             </div>
-            
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Mobile</label>
+                <input type="number" class="form-control form-control-no-border" id="exampleFormControlInput3" placeholder="02712345678">
+            </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Comments</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control form-control-no-border" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <div class="form-group form-group-btn">
                 <button type="button" class="btn btn-secondary">Submit</button>
@@ -29,6 +32,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 h1,
 h2 {
     font-weight: normal;
@@ -63,17 +67,36 @@ h5 {
     text-align: center;
     font-size: 1.5vw;
 }
-.form-group{
-    padding:20px;
-    margin:0;
+
+.form-group {
+    padding: 20px;
+    margin: 0;
 }
-.btn-secondary{
-    width:100%;
+
+.btn-secondary {
+    width: 100%;
 }
-.email-form-group{
-    padding:0 20px;
+
+.email-form-group {
+    padding: 0 20px;
 }
-.form-group-btn{
-    padding:0 20px;
+
+.form-group-btn {
+    padding: 0 20px;
+}
+
+textarea {
+    height: 220px;
+}
+
+.contact-form {
+    padding-top: 50px;
+}
+
+.form-control-no-border:focus {
+  border-color:#ccc;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 </style>

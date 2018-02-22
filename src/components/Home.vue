@@ -98,7 +98,11 @@ ul {
 
 li {
 
-  margin: 0 10px;
+  display: inline-block;
+  border: 1px solid #b7b7b7;
+  width: 100%;
+  margin: 30px 0;
+  padding: 10px 10px;
 }
 
 a {
